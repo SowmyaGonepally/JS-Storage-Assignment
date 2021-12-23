@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script>
+  
+
+            function incrementLocal()
+            {
+                if(localStorage.getItem("local_score")==null)
+                {
+                    localStorage.setItem("local_score",1);
+                }
+                else
+                {
+                    var count_local=parseInt(localStorage.getItem("local_score"));
+                    localStorage.setItem("local_score",count_local+1);
+                }
+                document.getElementById("localscore").innerHTML=localStorage.getItem("local_score");
+
+            }
+            function incrementSession()
+            {
+                if(sessionStorage.getItem("session_score")==null)
+                {
+                    sessionStorage.setItem("session_score",1);
+                }
+                else
+                {
+                   var count_session=parseInt(sessionStorage.getItem("session_score"));
+                   sessionStorage.setItem("session_score",count_session+1);
+                }
+                document.getElementById("sessionscore").innerHTML=sessionStorage.getItem("session_score");
+
+            }
+            
+        </script>
+    </head>
+    <body style="padding: 50px;">
+        <button class="btn btn-success" onclick="incrementLocal(),incrementSession()">Click here</button>
+        <br>
+        <br>
+        Local score : 
+        <p id="localscore"></p>
+        <br>
+        Session score:
+        <p id="sessionscore"></p>
+    </body>
+</html>
